@@ -1,0 +1,11 @@
+openai>=1.30.0
+pinecone-client>=3.2.2
+langchain>=0.2.0
+langchain-openai>=0.1.8
+langchain-pinecone>=0.1.1
+langchain-community>=0.2.0
+langchain-text-splitters>=0.2.0
+python-dotenv>=1.0.1
+jupyter>=1.0.0
+notebook>=7.2.0
+tiktoken>=0.7.0
