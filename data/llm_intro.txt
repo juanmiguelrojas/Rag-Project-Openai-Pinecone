@@ -1,0 +1,31 @@
+Large Language Models (LLMs) are a type of artificial intelligence model trained on vast amounts of text data to understand
+and generate human-like language. They are built using the Transformer architecture, introduced in the 2017 paper
+"Attention Is All You Need" by Vaswani et al.
+
+LLMs are characterized by their enormous size, often containing billions of parameters. Notable examples include:
+- GPT-4 (OpenAI): A highly capable model used for text generation, summarization, translation, and more.
+- Claude (Anthropic): Known for its focus on safety and helpfulness.
+- Gemini (Google DeepMind): Google's multimodal LLM supporting text, images, and code.
+- LLaMA (Meta): An open-weights model series enabling research and local deployment.
+
+How LLMs work:
+LLMs are pre-trained on large corpora using self-supervised learning, where the model learns to predict the next token
+in a sequence. After pre-training, they are often fine-tuned using Reinforcement Learning from Human Feedback (RLHF)
+to align outputs with human preferences.
+
+Key capabilities of LLMs include:
+- Text generation and completion
+- Question answering
+- Summarization
+- Code generation
+- Translation
+- Sentiment analysis
+- In-context learning (few-shot and zero-shot prompting)
+
+Retrieval-Augmented Generation (RAG) is a technique that enhances LLMs by coupling them with a retrieval system.
+Instead of relying solely on parametric knowledge (weights), the model retrieves relevant documents from an external
+knowledge base at inference time, grounding its responses in factual, up-to-date information. RAG reduces hallucinations
+and allows the model to cite its sources.
+
+Limitations of LLMs include hallucinations (generating plausible-sounding but incorrect information), knowledge cutoffs,
+high computational cost, and potential biases inherited from training data.
