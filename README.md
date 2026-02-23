@@ -18,7 +18,8 @@
 9. [Componentes Clave](#componentes-clave)
 10. [Cómo Ejecutar el Notebook](#cómo-ejecutar-el-notebook)
 11. [Cómo Guardar el Notebook con Outputs](#cómo-guardar-el-notebook-con-outputs)
-12. [Referencias](#referencias)
+12. [Limitaciones y Alternativas de Modelo](#limitaciones-y-alternativas-de-modelo)
+13. [Referencias](#referencias)
 
 ---
 
@@ -189,6 +190,36 @@ PINECONE_API_KEY=your_pinecone_api_key_here
 PINECONE_INDEX_NAME=rag-openai-index
 PINECONE_NAMESPACE=default
 ```
+
+---
+
+## Limitaciones y Alternativas de Modelo
+
+Durante pruebas reales del notebook puede aparecer el error de OpenAI:
+
+```text
+RateLimitError: 429 - insufficient_quota
+```
+
+Este error **no implica una falla del pipeline RAG** ni de Pinecone; indica que la cuenta/API key de OpenAI no tiene cuota suficiente o no tiene billing activo para completar embeddings y/o generación.
+
+### Opción 1: Mantener OpenAI (recomendado para este repo)
+
+- Usar una `OPENAI_API_KEY` con cuota activa.
+- Verificar facturación y límites en OpenAI Platform.
+- Re-ejecutar el notebook desde el Paso 1.
+
+### Opción 2: Usar Llama como alternativa
+
+Si no deseas depender de cuota OpenAI, puedes migrar a un stack local (por ejemplo, **Ollama + Llama**):
+
+- LLM: `llama3.1` (o similar)
+- Embeddings: `nomic-embed-text` (u otro modelo local)
+- Vector DB: Pinecone (con dimensión acorde al embedding elegido) o una base local
+
+> Importante: al cambiar el modelo de embeddings, la dimensión vectorial cambia. Debes crear/usar un índice de Pinecone compatible con esa nueva dimensión.
+
+Con esta ruta puedes seguir validando la arquitectura RAG completa aun cuando OpenAI esté limitado por cuota.
 
 ---
 
